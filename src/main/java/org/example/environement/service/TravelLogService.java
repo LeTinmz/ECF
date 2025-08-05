@@ -1,6 +1,7 @@
 package org.example.environement.service;
 
 import org.example.environement.dto.observation.ObservationDtoResponse;
+import org.example.environement.dto.travellogs.TravellogDtoReceive;
 import org.example.environement.dto.travellogs.TravellogDtoResponse;
 import org.example.environement.dto.travellogs.TravellogDtoStat;
 import org.example.environement.entity.Observation;
@@ -39,11 +40,11 @@ public class TravelLogService {
         return travellogDtoStat;
     }
 
-
-
     private List<TravellogDtoResponse> convertList (List<TravelLog> travelLogs){
         return travelLogs.stream().map(TravelLog::entityToDto).collect(Collectors.toList());
     }
 
-
+    public TravellogDtoResponse create(TravellogDtoReceive request) {
+        return travellogRepository.save(request.dtoToEntity()).entityToDto();
+    }
 }

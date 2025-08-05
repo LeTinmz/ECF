@@ -1,15 +1,14 @@
 package org.example.environement.controller;
 
+import org.example.environement.dto.travellogs.TravellogDtoReceive;
 import org.example.environement.dto.travellogs.TravellogDtoResponse;
 import org.example.environement.dto.travellogs.TravellogDtoStat;
 import org.example.environement.service.TravelLogService;
 
 import org.springframework.beans.propertyeditors.LocaleEditor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -34,6 +33,12 @@ public class TravellogController {
     @GetMapping("/stats/{id}")
     public ResponseEntity<TravellogDtoStat> getStatFromObservation (@PathVariable long id){
         return ResponseEntity.ok(travelLogService.getStat(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<TravellogDtoResponse> create(@RequestBody TravellogDtoReceive request) {
+        TravellogDtoResponse saved = travelLogService.create(request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 //
 //    @GetMapping("/user/{name}")

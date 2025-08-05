@@ -65,5 +65,4 @@ private double estimatedCo2Kg;
         this.estimatedCo2Kg = this.distanceKm * facteurEmission;
     }
 
-
 }

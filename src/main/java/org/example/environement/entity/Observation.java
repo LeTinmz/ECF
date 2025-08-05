@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 @Getter
 @Setter
 @Builder
+
 public class Observation {
     @Id
     @GeneratedValue

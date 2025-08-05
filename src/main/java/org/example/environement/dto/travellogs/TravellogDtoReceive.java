@@ -1,15 +1,13 @@
 package org.example.environement.dto.travellogs;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.example.environement.entity.TravelLog;
 import org.example.environement.entity.enums.TravelMode;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 public class TravellogDtoReceive {
     private double distanceKm;
@@ -20,7 +18,6 @@ public class TravellogDtoReceive {
                 .distanceKm(this.getDistanceKm())
                 .mode(TravelMode.valueOf(this.getMode()))
                 .build();
-
         travellog.calculateCO2();
         return travellog;
     }
