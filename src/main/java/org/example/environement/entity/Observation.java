@@ -1,10 +1,7 @@
 package org.example.environement.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.example.environement.dto.observation.ObservationDtoResponse;
 
 import java.time.LocalDate;
@@ -14,7 +11,8 @@ import java.util.stream.Collectors;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 public class Observation {
     @Id

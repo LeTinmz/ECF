@@ -1,17 +1,15 @@
 package org.example.environement.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.example.environement.dto.specie.SpecieDtoResponse;
 import org.example.environement.entity.enums.Category;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Builder
 public class Specie {
     @Id
