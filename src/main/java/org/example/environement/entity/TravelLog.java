@@ -5,6 +5,7 @@ import lombok.*;
 import org.example.environement.dto.observation.ObservationDtoResponse;
 import org.example.environement.dto.travellogs.TravellogDtoResponse;
 import org.example.environement.dto.travellogs.TravellogDtoStat;
+import org.example.environement.entity.enums.Category;
 import org.example.environement.entity.enums.TravelMode;
 
 import java.util.UUID;
@@ -26,6 +27,7 @@ public class TravelLog {
 @JoinColumn(name = "observation_id")
 private Observation observation;
 private double distanceKm;
+    @Enumerated(EnumType.STRING)
 private TravelMode mode;
 private double estimatedCo2Kg;
 

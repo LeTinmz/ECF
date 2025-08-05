@@ -20,6 +20,7 @@ public class Specie {
     @Column(nullable = false)
     private String scientificName;
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Category category;
 
     public SpecieDtoResponse entityToDto (){
